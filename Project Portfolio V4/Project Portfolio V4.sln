@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Portfolio V4", "Project Portfolio V4\Project Portfolio V4.csproj", "{B93C074F-9250-4569-8D61-717B5E19FDFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Portfolio V4.1", "Project Portfolio V4.1\Project Portfolio V4.1.csproj", "{89F5C54B-6A98-44D4-A6DC-0A5C4EA276EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Portfolio Domain", "Project Portfolio Domain\Project Portfolio Domain.csproj", "{AD11C0CE-F88B-404D-8244-54296239B7F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B93C074F-9250-4569-8D61-717B5E19FDFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B93C074F-9250-4569-8D61-717B5E19FDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B93C074F-9250-4569-8D61-717B5E19FDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B93C074F-9250-4569-8D61-717B5E19FDFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F5C54B-6A98-44D4-A6DC-0A5C4EA276EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F5C54B-6A98-44D4-A6DC-0A5C4EA276EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F5C54B-6A98-44D4-A6DC-0A5C4EA276EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F5C54B-6A98-44D4-A6DC-0A5C4EA276EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD11C0CE-F88B-404D-8244-54296239B7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD11C0CE-F88B-404D-8244-54296239B7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD11C0CE-F88B-404D-8244-54296239B7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD11C0CE-F88B-404D-8244-54296239B7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
