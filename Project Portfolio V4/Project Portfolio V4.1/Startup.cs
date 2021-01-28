@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project_Portfolio_Domain.Repository;
+using ProjectPortfolioDomain.MockDB;
 
 namespace Project_Portfolio_V4._1
 {
@@ -26,6 +28,8 @@ namespace Project_Portfolio_V4._1
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddScoped<IProjectRepository>(provider => new ProjectMockRepo());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
