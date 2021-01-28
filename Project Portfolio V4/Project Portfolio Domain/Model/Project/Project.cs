@@ -13,7 +13,7 @@ namespace Project_Portfolio_Domain.Model.Project
         public string SourceUrl { get; set; }
         public bool Featured { get; set; }
         public bool Show { get; set; }
-        public List<Technology> Technologies { get; set; }
+        public List<Tag> Tags { get; set; }
 
         public DateTime Updated { get; set; }
     }

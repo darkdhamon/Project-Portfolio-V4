@@ -24,9 +24,9 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source1",
                     Show = true,
                     Updated = DateTime.Now,
-                    Technologies = new List<Technology>
+                    Tags = new List<Tag>
                     {
-                        new Technology
+                        new Tag
                         {
                             Id = 1,
                             Name = "tech1"
@@ -43,9 +43,9 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source2",
                     Show = true,
                     Updated = DateTime.Now,
-                    Technologies = new List<Technology>
+                    Technologies = new List<Tag>
                     {
-                        new Technology
+                        new Tag
                         {
                             Id = 1,
                             Name = "tech2"
@@ -62,9 +62,9 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source3",
                     Show = false,
                     Updated = DateTime.Now,
-                    Technologies = new List<Technology>
+                    Technologies = new List<Tag>
                     {
-                        new Technology
+                        new Tag
                         {
                             Id = 1,
                             Name = "tech3"
