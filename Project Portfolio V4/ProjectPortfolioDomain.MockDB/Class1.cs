@@ -43,7 +43,7 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source2",
                     Show = true,
                     Updated = DateTime.Now,
-                    Technologies = new List<Tag>
+                    Tags = new List<Tag>
                     {
                         new Tag
                         {
@@ -62,7 +62,7 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source3",
                     Show = false,
                     Updated = DateTime.Now,
-                    Technologies = new List<Tag>
+                    Tags = new List<Tag>
                     {
                         new Tag
                         {
