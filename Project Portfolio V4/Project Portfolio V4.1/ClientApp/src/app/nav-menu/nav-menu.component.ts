@@ -7,6 +7,29 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  menus = [
+    {
+      active: true,
+      route: "/",
+      name: "Home"
+    },
+    {
+      active: true,
+      route: "/counter",
+      name: "Counter"
+    },
+    {
+      active: true,
+      route: "/fetch-data",
+      name: "Fetch data"
+    }
+  ];
+
+  constructor(
+
+  ) {
+    
+  }
 
   collapse() {
     this.isExpanded = false;
