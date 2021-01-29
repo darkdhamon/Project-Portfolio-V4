@@ -25,8 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\view-models\Project.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Project Portfolio Domain\Project Portfolio Domain.csproj" />
     <ProjectReference Include="..\ProjectPortfolioDomain.MockDB\ProjectPortfolioDomain.MockDB.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\view-models\Project.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

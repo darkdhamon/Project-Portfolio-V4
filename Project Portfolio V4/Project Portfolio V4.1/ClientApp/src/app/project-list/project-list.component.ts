@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectCardComponent } from '../project-card/project-card.component';
 
 @Component({
   selector: 'app-project-list',
