@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Project_Portfolio_Domain.Model.Project;
 using Project_Portfolio_Domain.Repository;
+using Project_Portfolio_Domain.ViewModels;
 
 namespace Project_Portfolio_V4._1.Controllers
 {
@@ -24,6 +25,24 @@ namespace Project_Portfolio_V4._1.Controllers
         public IEnumerable<Project> Get()
         {
             return ProjectRepository.GetAll();
+        }
+
+        [HttpGet]
+        [Route("page/{page}")]
+        [Route("page/{page}/{numPerPage}")]
+        public IEnumerable<ProjectCard> GetCards(int page, int numPerPage = 6)
+        {
+            page = page - 1;
+            if (page < 0) page = 0;
+            return ProjectRepository.GetAll().Skip(page * numPerPage).Take(numPerPage).Select(project=>new ProjectCard
+            {
+                Id = project.Id,
+                Name = project.Name,
+                ShortDescription = project.ShortDescription,
+                DemoUrl = project.DemoUrl,
+                SourceUrl = project.SourceUrl,
+                ImageDataUrl = project.ImageDataUrl
+            });
         }
 
         [HttpGet]
