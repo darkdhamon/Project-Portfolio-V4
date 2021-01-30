@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectCardComponent } from '../project-card/project-card.component';
+import { Project } from '../view-models/Project';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: 'app-project-list',
@@ -8,9 +9,19 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
 })
 export class ProjectListComponent implements OnInit {
 
-  constructor() { }
+  projects: Project[];
 
-  ngOnInit() {
+  constructor(private http: HttpClient) {
+ 
+    this.projects = [];
+  }
+
+  ngOnInit(): void {
+    ///Make call to DB for porject lists
+    this.http.get<Project[]>("api/Project/page/1").subscribe(data => {
+      this.projects = data;
+      console.log("ProjectListComponent - data:", data);
+    });
   }
 
 }
