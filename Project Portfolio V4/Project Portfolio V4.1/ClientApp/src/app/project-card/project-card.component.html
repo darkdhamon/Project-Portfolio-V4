@@ -1,13 +1,12 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body container">
-    <img class="hoverImg img-fluid"
-         src="https://www.midimusicadventures.com/wp-content/uploads/2015/07/LB2FrontCover.jpg">
-    <div class="overlay">
-      <div class="text">
-        <h5 class="card-title ">{{project.name}}</h5>
-        <p class="card-text hide">THIS IS A TEST</p>
-        <a href="#" class="btn btn-primary hide">View Details</a>
-      </div>
-    </div>
+<div class="card container image-background" [style.background-image]="'url(' + project.imageDataUrl + ')'" href="#">
+  <div class="card-body hoverImg">
+    <h5 class="card-title">{{project.name}}</h5>
+  </div>
+  <div class="overlay">
+    <p class="card-text hide">
+      {{project.shortDescription}}
+      <br/>
+      Click to view
+    </p>
   </div>
 </div>
