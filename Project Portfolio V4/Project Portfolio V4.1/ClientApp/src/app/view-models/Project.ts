@@ -1,4 +1,7 @@
 export interface Project {
   name: string;
-  summery: string;
+  shortDescription: string;
+  demoUrl: string;
+  sourceUrl: string;
+  imageDataUrl: string;
 }

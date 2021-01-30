@@ -2,6 +2,7 @@
   <div class="col-12">
     <h2 class="center-text">Projects</h2>
   </div>
-
-  <app-project-card [project]="project"></app-project-card>
+  <div *ngFor="let prog of projects">
+    <app-project-card [project]="prog"></app-project-card>
+  </div>
 </div>
