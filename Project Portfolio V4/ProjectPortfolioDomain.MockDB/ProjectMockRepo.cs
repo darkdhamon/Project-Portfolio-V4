@@ -24,6 +24,10 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source1",
                     Show = true,
                     Updated = DateTime.Now,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now,
+                    ImageDataUrl = "https://th.bing.com/th/id/Rab111ab1ee80003a8572de54c25df6bc?rik=fQoyieInqg6elg&riu=http%3a%2f%2fcliparts.co%2fcliparts%2fLTd%2f5aL%2fLTd5aLokc.jpg&ehk=WRC60g%2fJABi%2f9uE6%2bIFxie8ilohMIad%2fhHx9pNeEx5Q%3d&risl=&pid=ImgRaw",
+                    ShortDescription = "I",
                     Tags = new List<Tag>
                     {
                         new Tag
@@ -43,6 +47,10 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source2",
                     Show = true,
                     Updated = DateTime.Now,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now,
+                    ImageDataUrl = "https://wallup.net/wp-content/uploads/2016/01/304025-nature-love-Love_Love_Life.jpg",
+                    ShortDescription = "Love",
                     Tags = new List<Tag>
                     {
                         new Tag
@@ -62,6 +70,10 @@ namespace ProjectPortfolioDomain.MockDB
                     SourceUrl = "Source3",
                     Show = false,
                     Updated = DateTime.Now,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now,
+                    ImageDataUrl = "https://logos.textgiraffe.com/logos/logo-name/lucy-designstyle-jungle-m.png",
+                    ShortDescription = "Lucy",
                     Tags = new List<Tag>
                     {
                         new Tag

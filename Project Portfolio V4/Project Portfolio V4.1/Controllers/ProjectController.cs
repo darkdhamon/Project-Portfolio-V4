@@ -30,7 +30,7 @@ namespace Project_Portfolio_V4._1.Controllers
         [HttpGet]
         [Route("page/{page}")]
         [Route("page/{page}/{numPerPage}")]
-        public IEnumerable<ProjectCard> GetCards(int page, int numPerPage = 6)
+        public IEnumerable<ProjectCard> GetCards(int page, int numPerPage = 8)
         {
             page = page - 1;
             if (page < 0) page = 0;
