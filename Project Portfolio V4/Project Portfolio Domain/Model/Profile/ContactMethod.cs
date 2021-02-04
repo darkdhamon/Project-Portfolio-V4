@@ -4,7 +4,7 @@ using Project_Portfolio_Domain.Repository.Abstract;
 namespace Project_Portfolio_Domain.Model.Profile
 {
     [Table("ContactMethod")]
-    public class ContactMethod : Entity
+    public abstract class ContactMethod : Entity
     {
         public Profile Profile { get; set; }
         public string Name { get; set; }
