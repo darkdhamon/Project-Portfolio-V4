@@ -19,8 +19,7 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {
     ///Make call to DB for porject lists
     this.http.get<Project[]>("api/Project/page/1").subscribe(data => {
-      ///For testing, I'm duplicating the data returned from core
-      this.projects = data;//[...data, ...data, ...data];
+      this.projects = data;
       console.log("ProjectListComponent - data:", data);
     });
   }
