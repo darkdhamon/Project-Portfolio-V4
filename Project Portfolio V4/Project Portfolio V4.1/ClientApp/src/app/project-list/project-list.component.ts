@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../view-models/Project';
+import { ProjectListApiResponse } from '../view-models/ProjectListApiResponse';
+
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
@@ -18,9 +20,9 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit(): void {
     ///Make call to DB for porject lists
-    this.http.get<Project[]>("api/Project/page/1").subscribe(data => {
-      this.projects = data;
-      console.log("ProjectListComponent - data:", data);
+    this.http.get<ProjectListApiResponse>("api/Project/page/1").subscribe(response => {
+      this.projects = response.data;
+      console.log("ProjectListComponent - response:", response);
     });
   }
 

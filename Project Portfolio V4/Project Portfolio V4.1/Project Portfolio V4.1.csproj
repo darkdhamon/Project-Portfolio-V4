@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\view-models\Project.ts" />
+    <None Remove="ClientApp\src\app\view-models\ProjectListApiResponse.ts" />
   </ItemGroup>
 
   <ItemGroup>
