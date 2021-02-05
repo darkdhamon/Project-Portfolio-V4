@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using BHB.Common.API;
 using Project_Portfolio_Domain.Model.Project;
 using Project_Portfolio_Domain.Repository;
 using Project_Portfolio_Domain.ViewModels;
@@ -22,41 +21,75 @@ namespace Project_Portfolio_V4._1.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Project> Get()
+        public ApiResponse<IEnumerable<Project>> Get()
         {
-            return ProjectRepository.GetAll();
+            var response = new ApiResponse<IEnumerable<Project>> {Data = ProjectRepository.GetAll()};
+            return response;
         }
 
         [HttpGet]
         [Route("page/{page}")]
         [Route("page/{page}/{numPerPage}")]
-        public IEnumerable<ProjectCard> GetCards(int page, int numPerPage = 8)
+        public PagedApiResponse<IEnumerable<ProjectCard>> GetCards(int page, int numPerPage = 8)
         {
             page = page - 1;
             if (page < 0) page = 0;
-            return ProjectRepository.GetAll().Skip(page * numPerPage).Take(numPerPage).Select(project=>new ProjectCard
+            var response = new PagedApiResponse<IEnumerable<ProjectCard>>
             {
-                Id = project.Id,
-                Name = project.Name,
-                ShortDescription = project.ShortDescription,
-                DemoUrl = project.DemoUrl,
-                SourceUrl = project.SourceUrl,
-                ImageDataUrl = project.ImageDataUrl
-            });
+                Page = page,
+                NumPerPage = numPerPage,
+                Data = ProjectRepository.GetAll().Skip(page * numPerPage).Take(numPerPage).Select(project =>
+                    new ProjectCard
+                    {
+                        Id = project.Id,
+                        Name = project.Name,
+                        ShortDescription = project.ShortDescription,
+                        DemoUrl = project.DemoUrl,
+                        SourceUrl = project.SourceUrl,
+                        ImageDataUrl = project.ImageDataUrl
+                    }),
+                TotalPages = (int) Math.Ceiling(ProjectRepository.GetAll().Count() / (decimal) numPerPage)
+            };
+            return response;
         }
 
         [HttpGet]
         [Route("{id}")]
-        public Project Get(int id)
+        public ApiResponse<Project> Get(int id)
         {
-            return ProjectRepository.Get(id);
+            var response = new ApiResponse<Project>
+            {
+                Data=ProjectRepository.Get(id)
+            };
+            return response;
         }
 
         [HttpGet]
         [Route("Featured")]
-        public IEnumerable<Project> Featured()
+        public ApiResponse<IEnumerable<Project>> Featured()
         {
-            return ProjectRepository.GetFeatured();
+            var response = new ApiResponse<IEnumerable<Project>>
+            {
+                Data = ProjectRepository.GetFeatured()
+            };
+            return response;
+        }
+
+        [HttpPost]
+        public ApiResponse SaveProject([FromBody]Project project)
+        {
+            var response = new ApiResponse();
+            ProjectRepository.AddOrUpdate(project);
+            return response;
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ApiResponse DeleteProject(int id)
+        {
+            var response = new ApiResponse();
+            ProjectRepository.Delete(id);
+            return response;
         }
     }
 }

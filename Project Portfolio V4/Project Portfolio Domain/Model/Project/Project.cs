@@ -13,8 +13,11 @@ namespace Project_Portfolio_Domain.Model.Project
         public string Description { get; set; }
         [MaxLength(200)]
         public string ShortDescription { get; set; }
+        [Url]
         public string DemoUrl { get; set; }
+        [Url]
         public string SourceUrl { get; set; }
+        [Url]
         public string ImageDataUrl { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
