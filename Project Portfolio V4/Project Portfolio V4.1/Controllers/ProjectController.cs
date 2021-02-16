@@ -38,16 +38,22 @@ namespace Project_Portfolio_V4._1.Controllers
             {
                 Page = page,
                 NumPerPage = numPerPage,
-                Data = ProjectRepository.GetAll().Skip(page * numPerPage).Take(numPerPage).Select(project =>
-                    new ProjectCard
-                    {
-                        Id = project.Id,
-                        Name = project.Name,
-                        ShortDescription = project.ShortDescription,
-                        DemoUrl = project.DemoUrl,
-                        SourceUrl = project.SourceUrl,
-                        ImageDataUrl = project.ImageDataUrl
-                    }),
+                Data = ProjectRepository.GetAll()
+                    .Where(project=>project.Show)
+                    .OrderByDescending(project=>project.Featured)
+                    .ThenByDescending(project => project.Updated)
+                    .Skip(page * numPerPage)
+                    .Take(numPerPage)
+                    .Select(project =>
+                        new ProjectCard
+                            {
+                                Id = project.Id,
+                                Name = project.Name,
+                                ShortDescription = project.ShortDescription,
+                                DemoUrl = project.DemoUrl,
+                                SourceUrl = project.SourceUrl,
+                                ImageDataUrl = project.ImageDataUrl
+                            }),
                 TotalPages = (int) Math.Ceiling(ProjectRepository.GetAll().Count() / (decimal) numPerPage)
             };
             return response;
