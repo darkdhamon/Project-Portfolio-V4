@@ -54,7 +54,7 @@ namespace Project_Portfolio_V4._1.Controllers
                                 SourceUrl = project.SourceUrl,
                                 ImageDataUrl = project.ImageDataUrl
                             }),
-                TotalPages = (int) Math.Ceiling(ProjectRepository.GetAll().Count() / (decimal) numPerPage)
+                TotalPages = (int) Math.Ceiling(ProjectRepository.GetAll().Count(project => project.Show) / (decimal) numPerPage)
             };
             return response;
         }
