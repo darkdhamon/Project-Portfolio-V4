@@ -29,14 +29,34 @@ export class ProjectListComponent implements OnInit {
     return result;
   }
 
-  ngOnInit(): void {
+  incrementPageNumber() {
+    console.log("incrementPageNumber - this.page", this.page);
+    this.setPageNumber(this.page + 1);
+  }
+
+  decrementPageNumber() {
+    console.log("decrementPageNumber - this.page", this.page);
+    this.setPageNumber(this.page - 1);
+  }
+
+  setPageNumber(pageNum: number) {
+    this.page = pageNum;
+    console.log("setPageNumber - this.page", this.page);
+    this.getProjectsToList();
+  }
+
+  getProjectsToList() {
+    console.log("getProjectsToList - this.page", this.page);
     ///Make call to DB for porject lists
     this.http.get<PagedApiResponse<Project[]>>("api/Project/page/" + this.page).subscribe(response => {
       this.projects = response.data;
-      this.page = response.page;
       this.totalPages = response.totalPages;
       console.log("ProjectListComponent - response:", response);
     });
+  }
+
+  ngOnInit(): void {
+    this.getProjectsToList();
   }
 
 }
