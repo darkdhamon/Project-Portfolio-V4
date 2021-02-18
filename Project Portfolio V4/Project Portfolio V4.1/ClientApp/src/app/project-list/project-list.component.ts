@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../view-models/Project';
-import { ProjectListApiResponse } from '../view-models/ProjectListApiResponse';
+import { PagedApiResponse } from '../view-models/PagedApiResponse';
 
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-project-list',
@@ -12,16 +12,29 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 export class ProjectListComponent implements OnInit {
 
   projects: Project[];
+  page: number;
+  totalPages: number;
 
   constructor(private http: HttpClient) {
- 
     this.projects = [];
+    this.page = 1;
+    this.totalPages = 1;
+  }
+
+  generatePageArray(): number[] {
+    let result: number[] = [];
+    for (let _i = 0; _i < this.totalPages; _i++) {
+      result.push(_i + 1);
+    }
+    return result;
   }
 
   ngOnInit(): void {
     ///Make call to DB for porject lists
-    this.http.get<ProjectListApiResponse>("api/Project/page/1").subscribe(response => {
+    this.http.get<PagedApiResponse<Project[]>>("api/Project/page/" + this.page).subscribe(response => {
       this.projects = response.data;
+      this.page = response.page;
+      this.totalPages = response.totalPages;
       console.log("ProjectListComponent - response:", response);
     });
   }

@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     CounterComponent,
     FetchDataComponent,
     ProjectListComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
