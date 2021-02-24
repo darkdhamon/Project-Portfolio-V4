@@ -33,6 +33,7 @@ import { ProjectPageComponent } from './project-page/project-page.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'projects', component: ProjectListComponent },
+      { path: 'project/:id', component: ProjectPageComponent },
     ])
   ],
   providers: [],
