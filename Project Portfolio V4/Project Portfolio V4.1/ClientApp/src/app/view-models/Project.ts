@@ -1,5 +1,3 @@
-import * as moment from 'moment';
-import DateTimeFormat = Intl.DateTimeFormat;
 export class ProjectCard {
   id:number | undefined;
   name: string | undefined;
