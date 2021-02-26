@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../view-models/Project';
-import { PagedApiResponse } from '../view-models/PagedApiResponse';
-
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
+import {Project, ProjectCard} from "../view-models/Project";
+import {PagedApiResponse} from "../view-models/PagedApiResponse";
 
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.css']
+  styleUrls: ['./project-list.component.scss']
 })
 export class ProjectListComponent implements OnInit {
-
-  projects: Project[];
+  projects: ProjectCard[];
   page: number;
   totalPages: number;
 
@@ -19,6 +17,9 @@ export class ProjectListComponent implements OnInit {
     this.projects = [];
     this.page = 1;
     this.totalPages = 1;
+  }
+  ngOnInit(): void {
+    this.getProjectsToList();
   }
 
   generatePageArray(): number[] {
@@ -54,9 +55,4 @@ export class ProjectListComponent implements OnInit {
       console.log("ProjectListComponent - response:", response);
     });
   }
-
-  ngOnInit(): void {
-    this.getProjectsToList();
-  }
-
 }
