@@ -10,7 +10,7 @@ export class ProjectCardComponent implements OnInit {
 
   @Input() project: ProjectCard
   constructor() {
-    this.project = new ProjectCard();
+    this.project = <ProjectCard>{};
   }
 
   ngOnInit() {

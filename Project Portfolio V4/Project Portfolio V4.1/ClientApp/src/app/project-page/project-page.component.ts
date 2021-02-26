@@ -16,14 +16,16 @@ export class ProjectPageComponent implements OnInit {
   project: Project;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
-    this.project = new Project();
+    this.project = <Project>{};
   }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     ///Make call to DB for porject lists
+
     console.log("ProjectPageComponent - ngOnInitngOnInit");
     this.http.get<ApiResponse<Project>>("api/Project/" + id).subscribe(response => {
+
       this.project = response.data;
       console.log("ProjectPageComponent - response:", response);
     });

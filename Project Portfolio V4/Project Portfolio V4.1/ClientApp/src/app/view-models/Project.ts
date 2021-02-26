@@ -1,14 +1,14 @@
-export class ProjectCard {
-  id:number | undefined;
-  name: string | undefined;
-  shortDescription: string | undefined;
-  demoUrl: string | undefined;
-  sourceUrl: string | undefined;
-  imageDataUrl: string | undefined;
+export interface ProjectCard {
+  id:number;
+  name: string;
+  shortDescription: string;
+  demoUrl: string;
+  sourceUrl: string;
+  imageDataUrl: string;
 }
 
-export class Project extends ProjectCard{
-  description: string | undefined;
-  endDate: Date | undefined;
-  startDate: Date | undefined;
+export interface Project extends ProjectCard{
+  description: string;
+  endDate: Date;
+  startDate: Date;
 }
