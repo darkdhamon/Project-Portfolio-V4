@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Project, ProjectCard} from "../view-models/Project";
+import { ProjectCard } from "../view-models/ProjectCard";
 import {PagedApiResponse} from "../view-models/PagedApiResponse";
 
 @Component({
@@ -49,7 +49,7 @@ export class ProjectListComponent implements OnInit {
   getProjectsToList() {
     console.log("getProjectsToList - this.page", this.page);
     ///Make call to DB for porject lists
-    this.http.get<PagedApiResponse<Project[]>>("api/Project/page/" + this.page).subscribe(response => {
+    this.http.get<PagedApiResponse<ProjectCard[]>>("api/Project/page/" + this.page).subscribe(response => {
       this.projects = response.data;
       this.totalPages = response.totalPages;
       console.log("ProjectListComponent - response:", response);
