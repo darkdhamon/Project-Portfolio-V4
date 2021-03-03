@@ -6,6 +6,8 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from '@angular/router';
 import * as moment from "moment";
 
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 @Component({
   selector: 'app-project-page',
   templateUrl: './project-page.component.html',
@@ -14,6 +16,8 @@ import * as moment from "moment";
 export class ProjectPageComponent implements OnInit {
 
   project: Project;
+
+  faGithub = faGithub;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
     this.project = <Project>{};

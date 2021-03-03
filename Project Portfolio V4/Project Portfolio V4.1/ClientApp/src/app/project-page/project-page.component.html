@@ -3,7 +3,9 @@
   {{project.name}}
     <span class="small">({{displayDates()}})</span>
   </h5>
-  <div class="p-2 justify-content-end">TEST</div>
+  <div class="p-2 justify-content-end">
+    <fa-icon [icon]="faGithub"></fa-icon>
+  </div>
 </div>
 <img class="main-image" [src]="project.imageDataUrl" />
 <div [innerHTML]="project.description"></div>
