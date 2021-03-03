@@ -8,8 +8,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectPageComponent } from './project-page/project-page.component'
-import {ProjectCardComponent} from "./project-card/project-card.component";
-import {HttpClientModule} from "@angular/common/http";
+import { ProjectCardComponent } from "./project-card/project-card.component";
+import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
