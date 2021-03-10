@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as moment from "moment";
 
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faPlayCircle } from "@fortawesome/free-solid-svg-icons"
 
 @Component({
   selector: 'app-project-page',
@@ -18,6 +19,7 @@ export class ProjectPageComponent implements OnInit {
   project: Project;
 
   faGithub = faGithub;
+  faPlayCircle = faPlayCircle;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
     this.project = <Project>{};
