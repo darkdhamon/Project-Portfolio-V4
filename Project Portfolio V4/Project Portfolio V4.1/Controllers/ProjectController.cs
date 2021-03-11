@@ -38,8 +38,7 @@ namespace Project_Portfolio_V4._1.Controllers
             {
                 Page = page,
                 NumPerPage = numPerPage,
-                Data = ProjectRepository.GetAll()
-                    .Where(project=>project.Show)
+                Data = ProjectRepository.GetShownProjects()
                     .OrderByDescending(project=>project.Featured)
                     .ThenByDescending(project => project.Updated)
                     .Skip(page * numPerPage)
@@ -72,11 +71,17 @@ namespace Project_Portfolio_V4._1.Controllers
 
         [HttpGet]
         [Route("Featured")]
-        public ApiResponse<IEnumerable<Project>> Featured()
+        public ApiResponse<IEnumerable<ProjectCard>> Featured()
         {
-            var response = new ApiResponse<IEnumerable<Project>>
+            var response = new ApiResponse<IEnumerable<ProjectCard>>
             {
-                Data = ProjectRepository.GetFeatured()
+                Data = ProjectRepository.GetFeatured().Select(project=>new ProjectCard
+                {
+                    Id = project.Id,
+                    Name = project.Name,
+                    ShortDescription = project.ShortDescription,
+                    ImageDataUrl = project.ImageDataUrl
+                })
             };
             return response;
         }

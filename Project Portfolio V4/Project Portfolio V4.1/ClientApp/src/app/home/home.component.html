@@ -1,23 +1,16 @@
 <h1>Welcome Seeker,</h1>
 <p>[[Placeholder Intro]]</p>
-<div id="FeaturedCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" style="background: red; height: 200px;">
-      <p>You</p>
+
+<ngb-carousel #FeaturedCarousel [interval]="5000" [pauseOnHover]="true" [pauseOnFocus]="true" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let project of projectSlides">
+    <div class="carousel-caption">
+      <h3>{{project.name}}</h3>
+      <p>{{project.shortDescription}}</p>
     </div>
-    <div class="carousel-item" style="background: yellow; height: 200px;">
-      <p>Are</p>
-    </div>
-    <div class="carousel-item" style="background: blue; height: 200px;">
-      <p>Alive???</p>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#FeaturedCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only" aria-hidden="true">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#FeaturedCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only" aria-hidden="true">Next</span>
-  </a>
-</div>
+    <a [routerLink]="['/project', project.id]">
+      <div class="picsum-img-wrapper">
+        <img [src]="project.imageDataUrl" [alt]="project.name" width="100%">
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>

@@ -9,6 +9,7 @@ namespace Project_Portfolio_Domain.Model.Project
 {
     public class Project: Entity
     {
+        private List<ProjectImages> _projectImages;
         public string Name { get; set; }
         public string Description { get; set; }
         [MaxLength(200)]
@@ -26,5 +27,11 @@ namespace Project_Portfolio_Domain.Model.Project
         public List<Tag> Tags { get; set; }
 
         public DateTime Updated { get; set; }
+
+        public virtual List<ProjectImages> ProjectImages
+        {
+            get => _projectImages??=new List<ProjectImages>();
+            set => _projectImages = value;
+        }
     }
 }

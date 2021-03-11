@@ -89,7 +89,12 @@ Proin ac tellus id est tristique efficitur in at purus. Ut aliquet lorem maximus
 
         public IQueryable<Project> GetFeatured()
         {
-            return Data.Where(project => project.Featured);
+            return GetShownProjects().Where(project => project.Featured);
+        }
+
+        public IQueryable<Project> GetShownProjects()
+        {
+            return Data.Where(project => project.Show);
         }
     }
 }
