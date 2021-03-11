@@ -1,11 +1,4 @@
-export interface ProjectCard {
-  id:number;
-  name: string;
-  shortDescription: string;
-  demoUrl: string;
-  sourceUrl: string;
-  imageDataUrl: string;
-}
+import { ProjectCard } from '../view-models/ProjectCard';
 
 export interface Project extends ProjectCard{
   description: string;
