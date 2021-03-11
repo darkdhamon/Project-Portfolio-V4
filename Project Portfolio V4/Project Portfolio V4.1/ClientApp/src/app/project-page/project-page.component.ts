@@ -29,11 +29,9 @@ export class ProjectPageComponent implements OnInit {
     let id = this.route.snapshot.params['id'];
     ///Make call to DB for porject lists
 
-    console.log("ProjectPageComponent - ngOnInitngOnInit");
     this.http.get<ApiResponse<Project>>("api/Project/" + id).subscribe(response => {
 
       this.project = response.data;
-      console.log("ProjectPageComponent - response:", response);
     });
   }
 
