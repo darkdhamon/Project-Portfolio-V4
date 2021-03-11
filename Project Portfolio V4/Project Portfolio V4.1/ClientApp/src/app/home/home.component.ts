@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     this.http.get<ApiResponse<ProjectCard[]>>("api/Project/Featured")
       .subscribe(response =>
       {
-        console.log("What are my featured objects!?!?!?!?!?!?!?!",response.data);
         this.projectSlides = response.data;
       });
   }
