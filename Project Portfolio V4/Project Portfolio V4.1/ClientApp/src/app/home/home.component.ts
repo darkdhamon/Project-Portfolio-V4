@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ProjectCard} from "../view-models/Project";
+import {ProjectCard} from "../view-models/ProjectCard";
 import {HttpClient} from "@angular/common/http";
 import {ApiResponse} from "../view-models/ApiResponse";
 import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from "@ng-bootstrap/ng-bootstrap";
