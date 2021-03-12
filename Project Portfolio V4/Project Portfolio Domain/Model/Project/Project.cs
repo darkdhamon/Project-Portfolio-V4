@@ -12,7 +12,7 @@ namespace Project_Portfolio_Domain.Model.Project
         private List<ProjectImages> _projectImages;
         public string Name { get; set; }
         public string Description { get; set; }
-        [MaxLength(200)]
+        [MaxLength(120)]
         public string ShortDescription { get; set; }
         [Url]
         public string DemoUrl { get; set; }
